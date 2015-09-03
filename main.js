@@ -1,4 +1,8 @@
+'use strict';
+
 var app = require('app');
+//var remote = require('remote');
+//var BrowserWindow = remote.require('browser-window');
 var BrowserWindow = require('browser-window');
 
 require('crash-reporter').start();
@@ -12,11 +16,12 @@ app.on('window-all-closed', function(){
 });
 
 app.on('ready', function(){
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow = new BrowserWindow({width: 1500, height: 1000});
 
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
   mainWindow.openDevTools();
+  mainWindow.closeDevTools();
 
   mainWindow.on('closed', function(){
     mainWindow = null;
